@@ -6,19 +6,23 @@ namespace ConsoleStudy
     {
         static void Main(string[] args)
         {
-            ConsoleKey key;
+            ClassEvent classEvent = new ClassEvent();
+            classEvent.OnFPress += ClassEvent_OnFPress;
+            classEvent.OnFPress += Star;
             while (true)
             {
-                key = Console.ReadKey().Key;
-                if (key == ConsoleKey.F)
-                {
-                    Console.WriteLine("FFFFFFFF");
-                }
-                else
-                {
-                    Console.WriteLine();
-                }
+                classEvent.CheckKey(Console.ReadKey().Key);
             }
+        }
+
+        private static void ClassEvent_OnFPress()
+        {
+            Console.WriteLine("FFFFFFFF");
+        }
+
+        public static void Star()
+        {
+            Console.WriteLine("I am a star");
         }
     }
 }
